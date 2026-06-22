@@ -129,3 +129,9 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://django-web-site-pi.vercel.app",
+]
