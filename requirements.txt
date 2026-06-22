@@ -1,2 +1,5 @@
-django
+Django>=5.0,<6.0
 gunicorn
+whitenoise
+psycopg2-binary
+djangorestframework
