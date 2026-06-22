@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS Igre</title>
+
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/games.css' %}">
+</head>
+
+<body>
+
+    {% include 'components/header.html' %}
+
+    <main class="games-page">
+
+        <h1>Sve PlayStation/Xbox Igre</h1>
+
+        <form method="GET" action="{% url 'games' %}" class="filters">
+
+            <input
+                type="text"
+                name="q"
+                placeholder="Pretraži igru..."
+                value="{{ query|default:'' }}"
+            >
+
+            <select name="platform">
+                <option value="">Sve platforme</option>
+
+                <option value="PS4"
+                    {% if selected_platform == "PS4" %}selected{% endif %}>
+                    PS4
+                </option>
+
+                <option value="PS5"
+                    {% if selected_platform == "PS5" %}selected{% endif %}>
+                    PS5
+                </option>
+
+                <option value="XBOX"
+                    {% if selected_platform == "XBOX" %}selected{% endif %}>
+                    Xbox
+                </option>
+            </select>
+
+            <select name="sort">
+                <option value="">Sortiraj</option>
+
+                 <option value="newest"
+                    {% if selected_sort == "newest" %}selected{% endif %}>
+                    Najnovije
+                </option>
+
+                <option value="price_asc"
+                    {% if selected_sort == "price_asc" %}selected{% endif %}>
+                    Cena rastuće
+                </option>
+
+                <option value="price_desc"
+                    {% if selected_sort == "price_desc" %}selected{% endif %}>
+                    Cena opadajuće
+                </option>
+
+                <option value="name"
+                    {% if selected_sort == "name" %}selected{% endif %}>
+                    A-Z
+                </option>
+            </select>
+
+            <button type="submit" class ="SearchButton">Primeni</button>
+
+        </form>
+
+        <div class="games-container">
+
+        </div>
+
+        <section class="more-games">
+
+    {% for product in products %}
+    
+    
+    <a href="{% url 'product_detail' product.id %}" class="game-card-link">
+
+    <div class="game-card">
+         {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+    {% endif %}
+
+    <h3 class = "title">{{ product.title }}</h3>
+
+  <div class = "platform">{{ product.platform }} </div>
+
+    <div class="price">
+        {{ product.price }} €
+    </div>
+    </div>
+    </a>
+
+
+{% endfor %}
+
+</section>
+
+<section class="features">
+
+    <div class="feature-box">
+        <h3>🎮 Originalne igre</h3>
+        <p>Sve PlayStation igre su originalne i licencirane.</p>
+    </div>
+
+    <div class="feature-box">
+        <h3>🚚 Brza dostava</h3>
+        <p>Dostava na teritoriji cele Srbije u roku od 24-48h.</p>
+    </div>
+
+    <div class="feature-box">
+        <h3>💳 Sigurno plaćanje</h3>
+        <p>Platite karticom ili pouzećem bez dodatnih troškova.</p>
+    </div>
+
+</section>
+</main>
+  
+  
+{% include 'components/footer.html' %}
+      
+</body>
+</html>

@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: white;
+}
+/* HERO */
+
+.psplus-hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #00439c, #0070d1);
+    color: white;
+}
+
+.psplus-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.psplus-hero p {
+    font-size: 1.2rem;
+}
+
+/* KARTICA */
+
+.psplus-container {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.psplus-card {
+    background: #111;
+    color: white;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.psplus-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.psplus-card h2 {
+    margin-top: 25px;
+    font-size: 2rem;
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffd700;
+    margin: 20px 0;
+}
+
+.psplus-card ul {
+    list-style: none;
+    padding: 0 30px 20px;
+    text-align: left;
+}
+
+.psplus-card li {
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+.psplus-card button {
+    margin: 25px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    background: #0070d1;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.psplus-card button:hover {
+    background: #005bb5;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 80px auto;
+    flex-wrap: wrap;
+}
+
+.feature-box {
+    background: #111;
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 300px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+}
+
+
+.feature-box:hover {
+    transform: translateY(-5px);
+}
+
+.feature-box h3 {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.feature-box p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .psplus-hero h1 {
+        font-size: 2rem;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-box {
+        width: 100%;
+        max-width: 350px;
+    }
+}

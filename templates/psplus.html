@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playstation Plus</title>
+
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/psplus.css' %}">
+</head>
+
+<body>
+
+{% include 'components/header.html' %}
+
+    <main>
+
+        <section class="psplus-hero">
+            <h1>PlayStation Plus EXTRA</h1>
+            <p>Najkompletnija PlayStation pretplata za PS4 i PS5.</p>
+        </section>
+
+        <section class="psplus-container">
+
+            <div class="psplus-card">
+
+                <img src="images/pspluss.png" alt="PS Plus EXTRA">
+
+                <h2>PS Plus Deluxe</h2>
+
+                <p class="price">7.999 RSD / 12 meseci</p>
+
+                <ul>
+                    <li>🎮 Stotine PS4 i PS5 igara</li>
+                    <li>🌐 Online Multiplayer</li>
+                    <li>🎁 Mesečne besplatne igre</li>
+                    <li>🕹️ Classics Catalogue</li>
+                    <li>⏳ Game Trials</li>
+                    <li>☁️ Cloud Storage</li>
+                </ul>
+
+                <button>Kupi odmah</button>
+
+            </div>
+
+        </section>
+
+        <section class="features">
+
+            <div class="feature-box">
+                <h3>🎮 Katalog igara</h3>
+                <p>Pristup stotinama PS4 i PS5 naslova.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>🌐 Online igranje</h3>
+                <p>Igraj sa prijateljima širom sveta.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>🎁 Mesečne igre</h3>
+                <p>Svakog meseca nove igre bez dodatne doplate.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    {% include 'components/footer.html' %}
+
+</body>
+
+</html>

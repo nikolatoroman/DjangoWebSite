@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <title>PS Games Store</title>
+
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+{% include 'components/header.html' %}
+
+<section class="hero">
+    <h1>PlayStation Igre na Popustu</h1>
+    <p>Najbolje PS4 i PS5 igre po najnižim cenama.</p>
+</section>
+
+<section class="games-grid">
+
+    {% for product in products %}
+
+    <div class="game-card">
+
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+        {% endif %}
+
+        <h3 class ="title">{{ product.title }}</h3>
+
+        <div class="platform"> {{ product.platform }} </div>
+
+        <div class="price">
+            {{ product.price }} €
+        </div>
+
+    </div>
+
+{% endfor %}
+
+</section>
+
+
+<section class="features">
+
+    <div class="feature-box">
+        <h3>🎮 Originalne igre</h3>
+        <p>Sve PlayStation igre su originalne i licencirane.</p>
+    </div>
+
+    <div class="feature-box">
+        <h3>🚚 Brza dostava</h3>
+        <p>Dostava na teritoriji cele Srbije u roku od 24-48h.</p>
+    </div>
+
+    <div class="feature-box">
+        <h3>💳 Sigurno plaćanje</h3>
+        <p>Platite karticom ili pouzećem bez dodatnih troškova.</p>
+    </div>
+
+</section>
+</main>
+  
+  
+{% include 'components/footer.html' %}
+
+</body>
+</html>

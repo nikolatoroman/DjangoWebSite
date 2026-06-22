@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <title>Plaćanje</title>
+    <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+</head>
+<body>
+
+{% include 'components/header.html' %}
+
+<main class="checkout-container">
+
+    <div class="checkout-form">
+
+        <h1>Plaćanje</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Ime i prezime</label>
+            <input type="text" name="full_name" required>
+
+            <label>Email</label>
+            <input type="email"
+                   name="email"
+                   value="{{ request.user.email }}"
+                   required>
+
+            <label>Telefon</label>
+            <input type="text" name="phone" required>
+
+            <div class="payment-box">
+                <h3>💳 Način plaćanja</h3>
+                <p>Debitna / Kreditna kartica</p>
+            </div>
+
+            <button class="confirm-btn" type="submit">
+                Potvrdi porudžbinu
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="order-summary">
+
+        <h2>Pregled porudžbine</h2>
+
+        {% for item in items %}
+
+        <div class="summary-item">
+            <span>{{ item.product.title }}</span>
+            <span>{{ item.subtotal }} €</span>
+        </div>
+
+        {% endfor %}
+
+        <div class="summary-total">
+            Ukupno: {{ total }} €
+        </div>
+
+    </div>
+
+</main>
+
+{% include 'components/footer.html' %}
+
+</body>
+</html>

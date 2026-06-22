@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <title>Korpa</title>
+
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+</head>
+
+<body>
+
+{% include 'components/header.html' %}
+
+<main>
+
+    <h1>Vaša Korpa</h1>
+
+    {% if items %}
+
+        {% for item in items %}
+
+            <div class="cart-item">
+
+                <h3>{{ item.product.title }}</h3>
+
+                <p>{{ item.product.platform }}</p>
+
+                <p>Količina: {{ item.quantity }}</p>
+
+                <p>{{ item.subtotal }} €</p>
+
+                <a href="{% url 'remove_from_cart' item.product.id %}">
+                    Ukloni
+                </a>
+
+            </div>
+
+            <hr>
+
+        {% endfor %}
+
+        <h2 class="cart-total">Ukupno: {{ total }} €</h2>
+
+        <a href="{% url 'checkout' %}">
+        <button class="checkout-btn">Nastavi na plaćanje</button>
+        </a>
+
+    {% else %}
+
+       <p class="empty-cart">Korpa je prazna.</p>
+
+    {% endif %}
+
+</main>
+
+{% include 'components/footer.html' %}
+
+</body>
+</html>

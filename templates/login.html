@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <title>Prijava</title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+</head>
+<body>
+
+{% include 'components/header.html' %}
+
+<main class="auth-page">
+    <h1>Prijava</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Prijavi se</button>
+    </form>
+    <p class="auth-link">
+    Nemaš nalog? <a href="{% url 'register' %}">Registruj se</a>
+    </p>
+</main>
+
+{% include 'components/footer.html' %}
+
+</body>
+</html>

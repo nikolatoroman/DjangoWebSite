@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | PS Games Store</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+</head>
+<body>
+
+{% include 'components/header.html' %}
+
+<main class="contact-page">
+
+    <section class="contact-hero">
+        <h1>Kontaktirajte nas</h1>
+        <p>Imate pitanje o PlayStation igrama, dostavi ili porudžbini? Pošaljite nam poruku.</p>
+    </section>
+
+    <section class="contact-section">
+
+        <div class="contact-info">
+            <h2>Informacije</h2>
+
+            <div class="info-box">
+                <h3>📧 Email</h3>
+                <p>support@zxgames.rs</p>
+            </div>
+
+            <div class="info-box">
+                <h3>📞 Telefon</h3>
+                <p>+381 60 123 4567</p>
+            </div>
+
+            <div class="info-box">
+                <h3>📍 Adresa</h3>
+                <p>Beograd, Srbija</p>
+            </div>
+
+            <div class="info-box">
+                <h3>⏰ Radno vreme</h3>
+                <p>Ponedeljak - Petak: 09:00 - 17:00</p>
+            </div>
+        </div>
+
+        <form class="contact-form">
+            <h2>Pošaljite poruku</h2>
+
+            <label for="name">Ime i prezime</label>
+            <input type="text" id="name" name="name" placeholder="Unesite ime i prezime" required>
+
+            <label for="email">Email adresa</label>
+            <input type="email" id="email" name="email" placeholder="Unesite email adresu" required>
+
+            <label for="subject">Naslov</label>
+            <input type="text" id="subject" name="subject" placeholder="Naslov poruke" required>
+
+            <label for="message">Poruka</label>
+            <textarea id="message" name="message" rows="6" placeholder="Napišite poruku..." required></textarea>
+
+            <button type="submit">Pošalji poruku</button>
+        </form>
+
+    </section>
+
+</main>
+
+{% include 'components/footer.html' %}
+
+</body>
+</html>

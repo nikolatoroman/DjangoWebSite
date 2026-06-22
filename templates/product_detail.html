@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.title }}</title>
+
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+</head>
+<body>
+
+{% include 'components/header.html' %}
+
+<main class="product-detail">
+
+    <div class="product-image">
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+        {% endif %}
+    </div>
+
+    <div class="product-info">
+        <h1>{{ product.title }}</h1>
+        <p class="platform">{{ product.platform }}</p>
+
+        {% if product.release_date %}
+            <p>Datum izlaska: {{ product.release_date }}</p>
+        {% endif %}
+
+        <p class="price">{{ product.price }} €</p>
+
+        {% if product.old_price %}
+            <p class="old-price">{{ product.old_price }} €</p>
+        {% endif %}
+
+        <p class="description">{{ product.description }}</p>
+
+        <a  href="{% url 'add_to_cart' product.id %}">
+            <button class = "Btn">Dodaj u korpu</button>
+        </a>
+    </div>
+
+</main>
+
+{% include 'components/footer.html' %}
+
+</body>
+</html>
