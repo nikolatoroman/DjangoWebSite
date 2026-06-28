@@ -16,15 +16,28 @@
     </nav>
 
     <div class="header-icons">
-        {% if user.is_authenticated %}
-            <a class = "auth-btn login-btn" href="{% url 'logout' %}">Logout</a>
-        {% else %}
-           <a class="auth-btn login-btn" href="{% url 'login' %}">Login</a>
-            <a class="auth-btn register-btn" href="{% url 'register' %}">Register</a>
-        {% endif %}
-        <button>🔍</button>
-        <a href="{% url 'cart' %}">
-        <button>🛒</button>
-        </a>
+      {% if user.is_authenticated %}
+
+    <a class="my-orders-link" href="{% url 'my_orders' %}">
+        Moje porudžbine
+    </a>
+
+    <p class="welcome-user">
+    👤 {{ user.username }}
+    </p>
+
+    <a class="auth-btn logout-btn" href="{% url 'logout' %}">
+        Logout
+    </a>
+     {% else %}
+        <a class="auth-btn login-btn" href="{% url 'login' %}">Login</a>
+        <a class="auth-btn register-btn" href="{% url 'register' %}">Register</a>
+     {% endif %}
+    <a href="{% url 'cart' %}" class="cart-icon">
+         🛒
+     {% if cart_count > 0 %}
+        <span class="cart-badge">{{ cart_count }}</span>
+    {% endif %}
+    </a>
     </div>
 </header>

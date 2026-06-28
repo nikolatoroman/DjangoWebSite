@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <title>Moje porudžbine</title>
+
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/my_orders.css' %}">
+</head>
+<body>
+
+{% include 'components/header.html' %}
+
+<main class="orders-page">
+    <h1>Moje porudžbine</h1>
+
+    {% if orders %}
+        {% for order in orders %}
+            <div class="order-card">
+                <h2>{{ order.order_number }}</h2>
+
+                <p>Datum: {{ order.created_at }}</p>
+                <p>Ukupno: {{ order.total_price }} €</p>
+                <p>Status: {{ order.payment_status }}</p>
+
+                <h3>Proizvodi:</h3>
+
+                {% for item in order.items.all %}
+                    <div class="order-item">
+                        <span>{{ item.product.title }}</span>
+                        <span>{{ item.price }} €</span>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-orders">Još uvek nemaš porudžbine.</p>
+
+        <a href="{% url 'games' %}" class="shop-btn">
+            Pogledaj igre
+        </a>
+    {% endif %}
+</main>
+
+{% include 'components/footer.html' %}
+
+</body>
+</html>

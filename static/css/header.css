@@ -92,3 +92,71 @@
     border-color: #1d4ed8;
     transform: translateY(-2px);
 }
+
+.cart-icon {
+    position: relative;
+    display: inline-block;
+    font-size: 22px;
+    text-decoration: none;
+    margin-left: 8px;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -10px;
+    right: -12px;
+
+    background: #dc2626;
+    color: white;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    padding: 3px 7px;
+    border-radius: 50%;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.my-orders-link {
+    color: #d1d5db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .3s ease;
+}
+
+.my-orders-link:hover {
+    color: #60a5fa;
+}
+
+.welcome-user {
+    color: white;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.welcome-user::before {
+    content: "";
+    width: 1px;
+    height: 20px;
+    background: rgba(255,255,255,.15);
+    margin-right: 10px;
+}
+
+.logout-btn {
+    background: transparent;
+    border: 2px solid #2563eb;
+    color: #2563eb;
+}
+
+.logout-btn:hover {
+    background: #2563eb;
+    color: white;
+}

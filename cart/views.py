@@ -54,3 +54,32 @@ def cart_detail(request):
         'items': items,
         'total': total
     })
+
+def increase_quantity(request, product_id):
+    cart = request.session.get('cart', {})
+
+    product_id = str(product_id)
+
+    if product_id in cart:
+        cart[product_id] += 1
+
+    request.session['cart'] = cart
+
+    return redirect('cart')
+
+
+def decrease_quantity(request, product_id):
+    cart = request.session.get('cart', {})
+
+    product_id = str(product_id)
+
+    if product_id in cart:
+
+        if cart[product_id] > 1:
+            cart[product_id] -= 1
+        else:
+            del cart[product_id]
+
+    request.session['cart'] = cart
+
+    return redirect('cart')
