@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2!h08!$a!m!a4*e*+wb)$p(b7nbs75da859wl(m*ep2dzq6+^6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -130,3 +130,9 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://django-web-site-pi.vercel.app",
+]
